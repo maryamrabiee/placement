@@ -294,6 +294,7 @@ public abstract class AbstractInference<T> {
 		 * by adding using ASTRAL-II hueristics
 		 */
 		dataCollection.formSetX(this);
+		dataCollection.addBipartitionsByInput(extraTrees.get(0), options.isExtrarooted());
 
 		
 		if (options.isExactSolution()) {
@@ -302,16 +303,16 @@ public abstract class AbstractInference<T> {
 		}
 
 	      
-		if (extraTrees != null && extraTrees.size() > 0) {		
-	        System.err.println("calculating extra bipartitions from extra input trees ...");
-			dataCollection.addExtraBipartitionsByInput(extraTrees,options.isExtrarooted());
-			int s = this.dataCollection.clusters.getClusterCount();
-			/*
-			 * for (Integer c: clusters2.keySet()){ s += clusters2.get(c).size(); }
-			 */
-			System.err.println("Number of Clusters after additions from extra trees: "
-					+ s);
-		}
+//		if (extraTrees != null && extraTrees.size() > 0) {		
+//	        System.err.println("calculating extra bipartitions from extra input trees ...");
+////			dataCollection.addExtraBipartitionsByInput(extraTrees,options.isExtrarooted());
+//			int s = this.dataCollection.clusters.getClusterCount();
+//			/*
+//			 * for (Integer c: clusters2.keySet()){ s += clusters2.get(c).size(); }
+//			 */
+//			System.err.println("Number of Clusters after additions from extra trees: "
+//					+ s);
+//		}
 		
 		if (this.options.isOutputSearchSpace()) {
 			for (Set<Vertex> s: dataCollection.clusters.getSubClusters()) {

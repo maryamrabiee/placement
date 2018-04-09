@@ -76,4 +76,6 @@ public abstract class AbstractDataCollection <T> {
 		return clone;
 	}
 
+	public abstract void addBipartitionsByInput(Tree tree, boolean extrarooted);
+
 }
